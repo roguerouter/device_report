@@ -40,6 +40,12 @@ Interfaces:
   IP_address: None
   Mode: Layer2
   VLAN: 30
+- Name: Ethernet1/4
+  Description: Unused_Shutdown
+  Enabled: True
+  IP_address: None
+  Mode: Layer3
+  VLAN: None
 - Name: mgmt0
   Description: None
   Enabled: True
@@ -50,3 +56,5 @@ VLAN_List:
 - VLAN_ID: 1
 - VLAN_ID: 20
 - VLAN_ID: 30
+- VLAN_ID: 100
+- VLAN_ID: 200

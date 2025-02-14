@@ -16,6 +16,24 @@ Interfaces:
   IP_address: 192.168.100.254/24
   Mode: Layer3
   VLAN: None
+- Name: GigabitEthernet3
+  Description: None
+  Enabled: True
+  IP_address: None
+  Mode: Layer3
+  VLAN: None
+- Name: GigabitEthernet3.100
+  Description: None
+  Enabled: True
+  IP_address: 10.100.1.254/24
+  Mode: Layer3
+  VLAN: None
+- Name: GigabitEthernet3.200
+  Description: None
+  Enabled: True
+  IP_address: 10.101.1.254/24
+  Mode: Layer3
+  VLAN: None
 - Name: GigabitEthernet8
   Description: None
   Enabled: True
