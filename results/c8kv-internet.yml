@@ -7,39 +7,58 @@ Interfaces:
 - Name: GigabitEthernet1
   Description: WAN/NAT interfaces (DHCP)
   Enabled: True
-  IP_address: dhcp
+  IP_address: 
+  - address: dhcp
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: GigabitEthernet2
   Description: Link to n9kv-sw1
   Enabled: True
-  IP_address: 192.168.100.254/24
+  IP_address: 
+  - address: 192.168.100.254/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: GigabitEthernet3
   Description: None
   Enabled: True
-  IP_address: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: GigabitEthernet3.100
   Description: None
   Enabled: True
-  IP_address: 10.100.1.254/24
+  IP_address: 
+  - address: 10.100.1.254/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: GigabitEthernet3.200
   Description: None
   Enabled: True
-  IP_address: 10.101.1.254/24
+  IP_address: 
+  - address: 10.101.1.254/24
+    secondary: True
+  - address: 10.201.1.254/24
+    secondary: True
+  - address: 10.200.1.254/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: GigabitEthernet8
   Description: None
   Enabled: True
-  IP_address: 172.16.1.101/24
+  IP_address: 
+  - address: 172.16.1.101/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 VLAN_List:
 - VLAN_ID: 1
 - VLAN_ID: 1002

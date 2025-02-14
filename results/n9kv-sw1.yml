@@ -7,51 +7,61 @@ Interfaces:
 - Name: Vlan1
   Description: None
   Enabled: True
-  IP_address: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: Vlan20
   Description: Gateway for Vlan20
   Enabled: True
-  IP_address: 10.1.20.254/24
+  IP_address: 
+  - address: 10.1.20.254/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: Vlan30
   Description: Gateway for Vlan30
   Enabled: True
-  IP_address: 10.1.30.254/24
+  IP_address: 
+  - address: 10.1.30.254/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: Ethernet1/1
   Description: Link to c8kv-internet
   Enabled: True
-  IP_address: 192.168.100.253/24
+  IP_address: 
+  - address: 192.168.100.253/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 - Name: Ethernet1/2
   Description: access port config
   Enabled: True
-  IP_address: None
   Mode: Layer2
   VLAN: 20
 - Name: Ethernet1/3
   Description: access port config
   Enabled: True
-  IP_address: None
   Mode: Layer2
   VLAN: 30
 - Name: Ethernet1/4
   Description: Unused_Shutdown
   Enabled: True
-  IP_address: None
-  Mode: Layer3
-  VLAN: None
+  Mode: Layer2
+  VLAN: 100,200
+  Type: Trunk
 - Name: mgmt0
   Description: None
   Enabled: True
-  IP_address: 172.16.1.102/24
+  IP_address: 
+  - address: 172.16.1.102/24
+    secondary: None
   Mode: Layer3
   VLAN: None
+  Type: None
 VLAN_List:
 - VLAN_ID: 1
 - VLAN_ID: 20
