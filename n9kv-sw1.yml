@@ -1,0 +1,52 @@
+Hostname: n9kv-sw1
+Device Type: nxos
+Model: Nexus9000 C9300v Chassis
+Serial: 9X3DAJRDA0N
+Version: 10.4(2)
+Interfaces: 
+- Name: Vlan1
+  Description: None
+  Enabled: True
+  IP_address: None
+  Mode: Layer3
+  VLAN: None
+- Name: Vlan20
+  Description: Gateway for Vlan20
+  Enabled: True
+  IP_address: 10.1.20.254/24
+  Mode: Layer3
+  VLAN: None
+- Name: Vlan30
+  Description: Gateway for Vlan30
+  Enabled: True
+  IP_address: 10.1.30.254/24
+  Mode: Layer3
+  VLAN: None
+- Name: Ethernet1/1
+  Description: Link to c8kv-internet
+  Enabled: True
+  IP_address: 192.168.100.253/24
+  Mode: Layer3
+  VLAN: None
+- Name: Ethernet1/2
+  Description: access port config
+  Enabled: True
+  IP_address: None
+  Mode: Layer2
+  VLAN: 20
+- Name: Ethernet1/3
+  Description: access port config
+  Enabled: True
+  IP_address: None
+  Mode: Layer2
+  VLAN: 30
+- Name: mgmt0
+  Description: None
+  Enabled: True
+  IP_address: 172.16.1.102/24
+  Mode: Layer3
+  VLAN: None
+VLAN_List:
+- VLAN_ID: 1
+- VLAN_ID: 20
+- VLAN_ID: 30

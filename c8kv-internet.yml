@@ -1,0 +1,30 @@
+Hostname: c8kv-internet
+Device Type: ios
+Model: C8000V
+Serial: 9P0YZMNTMD3
+Version: 17.13.01a
+Interfaces: 
+- Name: GigabitEthernet1
+  Description: WAN/NAT interfaces (DHCP)
+  Enabled: True
+  IP_address: dhcp
+  Mode: Layer3
+  VLAN: None
+- Name: GigabitEthernet2
+  Description: Link to n9kv-sw1
+  Enabled: True
+  IP_address: 192.168.100.254/24
+  Mode: Layer3
+  VLAN: None
+- Name: GigabitEthernet8
+  Description: None
+  Enabled: True
+  IP_address: 172.16.1.101/24
+  Mode: Layer3
+  VLAN: None
+VLAN_List:
+- VLAN_ID: 1
+- VLAN_ID: 1002
+- VLAN_ID: 1003
+- VLAN_ID: 1004
+- VLAN_ID: 1005

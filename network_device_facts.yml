@@ -1,0 +1,50 @@
+---
+- hosts: all
+  gather_facts: false
+  
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_user: netadmin
+    ansible_password: s3cr3tpw1
+
+  tasks:
+
+  - name: Gather all IOS Facts
+    cisco.ios.ios_facts:
+      gather_network_resources:
+      - interfaces
+      - vlans
+      - l3_interfaces
+      - l2_interfaces
+      - hostname
+    when: ansible_network_os == "ios"
+    register: iosxe_device_facts
+  
+  - name: Gather all NXOS facts
+    cisco.nxos.nxos_facts:
+      gather_network_resources:
+      - interfaces
+      - vlans
+      - l3_interfaces
+      - l2_interfaces
+      - hostname
+    when: ansible_network_os == "nxos"
+    register: nxos_device_facts
+  
+  - name: "Generate IOS-XE facts parsed data"
+    template:
+      src: ./templates/device_reports.j2
+      dest: "{{inventory_hostname}}.yml"
+    with_items:
+      - "{{iosxe_device_facts.ansible_facts}}"
+    when: iosxe_device_facts.ansible_facts is defined
+
+  - name: "Generate NX-OS facts parsed data"
+    template:
+      src: ./templates/device_reports.j2
+      dest: "{{inventory_hostname}}.yml"
+    with_items:
+      - "{{nxos_device_facts.ansible_facts}}"
+    when: nxos_device_facts.ansible_facts is defined
+
+ 

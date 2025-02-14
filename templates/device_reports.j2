@@ -1,0 +1,44 @@
+Hostname: {{item.ansible_net_hostname}}
+Device Type: {{item.ansible_net_system}}
+Model: {{item.ansible_net_model}}
+Serial: {{item.ansible_net_serialnum}}
+Version: {{item.ansible_net_version}}
+Interfaces: 
+{% for interface in item.ansible_network_resources.interfaces %}
+{# L2 Interfaces on Nexus do not show "Enabled: True" when "no shutdown" is applied, Enabled state only exists when port is shutdown #}
+{% if interface['enabled'] is defined and interface['enabled'] != False or interface['enabled'] is not defined %}
+- Name: {{interface['name']}}
+{% if interface['description'] is defined %}
+  Description: {{interface['description']}}
+{% else %}
+  Description: None
+{% endif %}
+  Enabled: True
+{% for l3int in item.ansible_network_resources.l3_interfaces %}
+{% if interface['name'] == l3int['name'] %}
+{% if l3int['ipv4'][0]['address'] is defined %}
+  IP_address: {{l3int['ipv4'][0]['address']}}
+{% elif l3int['ipv4'][0]['dhcp'] is defined %}
+  IP_address: dhcp
+{% else %}
+  IP_address: None
+{% endif %}
+{% endif %}
+{% endfor %}
+{% for l2int in item.ansible_network_resources.l2_interfaces %}
+{% if interface['name'] == l2int['name'] %}
+{% if l2int['access'] is defined %}
+  Mode: Layer2
+  VLAN: {{l2int['access']['vlan']}}
+{% else %}
+  Mode: Layer3
+  VLAN: None
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif -%}
+{% endfor %}
+VLAN_List:
+{% for vlan in item.ansible_network_resources.vlans %}
+- VLAN_ID: {{vlan['vlan_id']}}
+{% endfor %}
